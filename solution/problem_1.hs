@@ -1,4 +1,4 @@
-myLast :: [a] -> Maybe a
-myLast []     = Nothing
-myLast (x:[]) = Just x
+myLast :: [a] -> a
+myLast [] = error "No end for empty lists!"
+myLast [x] = x
 myLast (_:xs) = myLast xs
