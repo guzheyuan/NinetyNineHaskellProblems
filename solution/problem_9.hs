@@ -1,6 +1,6 @@
-compress :: Eq a => [a] -> [a]
-compress = foldl skip []
-    where skip [] x = [x]
-          skip acc x
-                | x == last acc = acc
-                | otherwise = acc ++ [x]
+pack :: Eq a => [a] -> [[a]]
+pack = foldl func [] 
+    where func [] e = [[e]]
+          func acc e
+            | (head (last acc)) == e = (init acc) ++ [(last acc) ++ [e]] 
+            | otherwise = acc ++ [[e]]
